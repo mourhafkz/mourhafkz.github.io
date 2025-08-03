@@ -42,7 +42,6 @@ footer {
     color: #fff;
     text-align: center;
     padding: 20px 0;
-
     bottom: 0;
     width: 100%;
 }
@@ -59,7 +58,6 @@ footer {
     font-size: 15px;
 }
 
-
 .non-collapsible {
     background-color: #777;
     color: white;
@@ -72,7 +70,6 @@ footer {
     font-size: 15px;
 }
 
-
 .active,
 .collapsible:hover {
     background-color: #555;
@@ -83,7 +80,6 @@ footer {
     display: none;
     overflow: hidden;
     background-color: #f1f1f1;
-
 }
 
 .indicator {
@@ -95,22 +91,97 @@ footer {
 }
 
 .image-placeholder {
-    width: 600px;
-    /* Adjust width as needed */
-    height: 340px;
-    /* Adjust height as needed */
-    margin-bottom: 20px;
-    margin-top: 10px;
-    /* Replace 'path_to_your_image.jpg' with the actual path to your image */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    background-position: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    /* Adjust the shadow properties as needed */
-} 
+  margin: 18px auto 0; /* top margin + auto left/right to center horizontally */
+  display: block;      /* ensure it behaves like a block element */
+  width: 600px;        /* your fixed width */
+  height: 340px;       /* your fixed height */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+}
 .hint {
     color: darkgoldenrod;
     font-size: 10px;
+}
+
+/* 🔹 Section Colors */
+
+.section-current .collapsible,
+.section-current .non-collapsible {
+    background-color: #4a90e2;
+}
+.section-current .collapsible:hover,
+.section-current .non-collapsible:hover {
+    background-color: #357ab8;
+}
+.section-planned .collapsible,
+.section-planned .non-collapsible {
+    background-color: #4fbfa8;
+}
+.section-planned .collapsible:hover,
+.section-planned .non-collapsible:hover {
+    background-color: #3b9f89;
+}
+
+
+.section-research .collapsible,
+.section-research .non-collapsible {
+    background-color: #9370db;
+}
+.section-research .collapsible:hover,
+.section-research .non-collapsible:hover {
+    background-color: #7a5fc0;
+}
+
+header a {
+    color: #66ccff; /* XP light blue link */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+header a:hover {
+    background-color: #99ddff; /* Light hover background */
+    border: 1px solid #3399ff; /* XP border style */
+    color: #003399; /* Darker blue on hover */
+    text-decoration: underline;
+}
+.section-current {
+  --theme-color: #4a90e2;
+  background-color: #e6f0fa;
+  padding: 20px;
+}
+
+.section-planned {
+  --theme-color: #4fbfa8;
+  background-color: #e9f9f1;
+  padding: 20px;
+}
+
+.section-research {
+  --theme-color: #9370db;
+  background-color: #f2ecfb;
+  padding: 20px;
+}
+
+/* Use the variable here */
+.content {
+  padding: 20px 28px;
+  background-color: #fafafa;
+  border-left: 5px solid var(--theme-color);
+  margin-bottom: 12px;
+  border-radius: 0 12px 12px 12px;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.content p {
+  margin: 0 0 16px 0;
+  color: #555;
 }

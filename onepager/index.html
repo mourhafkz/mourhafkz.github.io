@@ -13,20 +13,130 @@
 <body>
     <header>
         <h1>DLTPT Status</h1>
-    </header>
+        <p>Status : Online <i class="fa fa-circle indicator" aria-hidden="true"></i> <a href="https://www.dltpt-platform.uni-tuebingen.de/" target="_blank" rel="noopener noreferrer">Go to DLTPT</a></p>
 
-    <h2 class="status-header">Current Features <span class="hint">click headers for details</span></h2>
+        
+    </header>
+  <section class="section-research">
+    <h2 class="status-header">Research features <span class="hint">click for details</span></h2>
+
+
+
+
+    <button type="button" class="collapsible">Strict grading</button>
+    <div class="content" >
+        <p>This type of grading adheres to the conventional green and red flagging. It matches the student answer to the answer key exactly.</p>
+        <div class="image-placeholder" style="background-image: url('imgs/strict_before.bmp');"></div>
+    </div>
+
+    <button type="button" class="collapsible">Flexible grading</button>
+    <div class="content">
+        <p>Answers that are near misses or synonyms are flagged as orange for the teacher to notice. They are still graded as wrong unless the teacher
+            adds them to the answer key. This feature employs linguistic similarity in context with modifiable threshold regardless of the language in question. </p>
+        <div class="image-placeholder" style="background-image: url('imgs/flexible_after.bmp');"></div>
+    </div>
+
+
+    <button type="button" class="collapsible">Automatic synonym grading (experimental)</button>
+    <div class="content">
+        <p>When this feature is activated orange answers are automatically scored as green. This could result in false scoring such as 'smar' for 'smart'.</p>
+        <div class="image-placeholder" style="background-image: url('imgs/synonyms_after.bmp');"></div>
+    </div>
+
+        <button type="button" class="collapsible">Grammar analysis</button>
+    <div class="content">
+        <p>This feature is part of the support the teacher receives during the creation of exercises. It attempts to identify, classify, 
+            and highlight existing grammar structures in the text. It also attempts to average all the structure levels into a unified label. The source of the maping is CEFR-j.</p>
+        <div class="image-placeholder" style="background-image: url('imgs/grammar1.png');"></div>
+        <div class="image-placeholder" style="background-image: url('imgs/grammar2.png');"></div>
+    </div>
+
+    <button type="button" class="collapsible">Vocabulary analysis</button>
+    <div class="content">
+        <p>This feature is part of the support the teacher receives during the creation of exercises. It attempts to identify the vocabulary level. It is based on CEFR-j and Octanove. </p>
+        <div class="image-placeholder" style="background-image: url('imgs/vocab1.png');"></div>
+        <div class="image-placeholder" style="background-image: url('imgs/vocab2.png');"></div>
+         <p>A study of readability and an overall average is also available to teachers.  </p>
+        <div class="image-placeholder" style="background-image: url('imgs/vocab3.png');"></div>
+    </div>
+
+
+    <button type="button" class="collapsible">Phrase suggestion</button>
+    <div class="content">
+        <p>Based on the British National Corpus (BNC) Corpus of Contemporary American English (COCA), the topic of a text is identified and relevant collocations are suggested to the teacher.</p>
+        <p>Suggestions for a topic about a meuseum:</p>
+        <div class="image-placeholder" style="background-image: url('imgs/suggestions.png');"></div>
+        <p>Suggestions for a topic about firefighters:</p>
+        <div class="image-placeholder" style="background-image: url('imgs/suggestions2.png');"></div>
+    </div>
+
+    <button type="button" class="collapsible">Mistake classification feedback (accessible to students)</button>
+    <div class="content">
+        <p>This feedback report reflects the students performance per classrrom. It is accessible to both the student and the teacher. </p>
+        <div class="image-placeholder" style="background-image: url('imgs/student_feedback.png');"></div>
+        <p>The mistakes on the left-hand side are clickable. They show the mistake in context and provide tips for the students.</p>
+        <div class="image-placeholder" style="background-image: url('imgs/student_feedback2.png');"></div>
+    </div>
+
+    <button type="button" class="collapsible">Learning Analytics - Activity rings  (accessible to students)</button>
+    <div class="content">
+        <p>This reflects the engagment of the students with the classroom and its activities.</p>
+        <div class="image-placeholder" style="background-image: url('imgs/rings.png');"></div>
+    </div>
+
+    <button type="button" class="collapsible">Learning Analytics - Overall and indiivual progress spider chart</button>
+    <div class="content">
+        <p>This is a one-stop overview of the student performance.</p>
+        <div class="image-placeholder" style="background-image: url('imgs/performance.png');"></div>
+    </div>
+
+        <button type="button" class="collapsible">Learning Analytics - Intervantion suggestions</button>
+    <div class="content">
+        <p>This is a short message to the teacher about each student in the classroom in realtime. </p>
+        <div class="image-placeholder" style="background-image: url('imgs/interventions.png');"></div>
+    </div>
+
+    <button type="button" class="collapsible">Learning Analytics - Answer linearity logs</button>
+    <div class="content">
+        <p>This feature logs the students move from one question to another. From a research perspective this could provide insights on the difficulty 
+            of particular questions/gaps or the relationship amongst them. 
+        </p>
+        <div class="image-placeholder" style="background-image: url('imgs/linearity.png');"></div>
+    </div>
+
+    <button type="button" class="collapsible">Next lesson plan suggestion </button>
+    <div class="content">
+        <p>Based on the classroom performance, this features attempts to track mistakes in context and suggest ways to remedy them.</p>
+        <div class="image-placeholder" style="background-image: url('imgs/lessonPlan.png');"></div>
+    </div>
+
+
+    <button type="button" class="collapsible">Personalized extended feedback with ChatGPT (accessible to students)</button>
+    <div class="content">
+        <p>This feature is two levels. Level 1 is the platform judgment on how the answer meets the answer key and whether it is a near miss or a misspelling.</p>
+        <div class="image-placeholder" style="background-image: url('imgs/extended_feedback_before.bmp');"></div>
+             <p>Level 2 is a controlled prompting of ChatGPT to build on the platform jusdgment and provide examples. Level 2 can be activated and deactivated by the teacher at will. </p>
+        <div class="image-placeholder" style="background-image: url('imgs/extended_feedback_after.bmp');"></div>
+    </div>
+
+
+</section>
+  
+  
+  
+<section class="section-current">
+    <h2 class="status-header">Platform workflow <span class="hint">click for details</span></h2>
     <button type="button" class="collapsible">Three Interfaces</button>
     <div class="content">
         <div class="image-placeholder" style="background-image: url('imgs/img-1.jpg');"></div>
     </div>
 
-    <button type="button" class="collapsible">Folder/Class/Activity System</button>
+    <button type="button" class="collapsible">Folder - Class - Activity System</button>
     <div class="content">
         <div class="image-placeholder" style="background-image: url('imgs/img-2.jpg');"></div>
     </div>
 
-    <button type="button" class="collapsible">Exercise pools</button>
+    <button type="button" class="collapsible">Exercise pools and sharing among teachers</button>
     <div class="content">
         <div class="image-placeholder" style="background-image: url('imgs/img-3.jpg');"></div>
     </div>
@@ -48,22 +158,22 @@
         <div class="image-placeholder" style="background-image: url('imgs/img-9.jpg');"></div>
     </div>
 
-    <button type="button" class="collapsible">Linguistic Statistics</button>
-    <div class="content">
-        <div class="image-placeholder" style="background-image: url('imgs/img-22.jpg');"></div>
-    </div>
-
     <button type="button" class="collapsible">Exercise Attempt</button>
     <div class="content">
         <div class="image-placeholder" style="background-image: url('imgs/img-16.jpg');"></div>
         <div class="image-placeholder" style="background-image: url('imgs/img-17.jpg');"></div>
     </div>
 
-    <button type="button" class="collapsible">Automatic Feedback</button>
+    <button type="button" class="collapsible">50 English testlets - validation in progress</button>
+    <div class="content">
+        <div class="image-placeholder" style="background-image: url('imgs/english_testlets.jpg');"></div>
+    </div>
+    <button type="button" class="collapsible">Automatic student results (accessible to students)</button>
     <div class="content">
         <div class="image-placeholder" style="background-image: url('imgs/img-18.jpg');"></div>
         <div class="image-placeholder" style="background-image: url('imgs/img-19.jpg');"></div>
     </div>
+
 
     <button type="button" class="collapsible">Exercise type 1: C-test</button>
     <div class="content">
@@ -83,21 +193,30 @@
         <div class="image-placeholder" style="background-image: url('imgs/img-23.png');"></div>
     </div>
 
-    <button type="button" class="collapsible">New: Individual User Rights</button>
-    <div class="content">
-        <div class="image-placeholder" style="background-image: url('imgs/userrights.jpg');"></div>
-    </div>
-
-    <button type="button" class="collapsible">New: 60 validated testlets for English</button>
-    <div class="content">
-        <div class="image-placeholder" style="background-image: url('imgs/english_testlets.jpg');"></div>
-    </div>
-
+  
+  </section>
+<section class="section-planned">
     
-    <h2 class="status-header">Planned Features</h2>
+    <h2 class="status-header">Planned features </h2>
+    <button type="button" class="collapsible">Repurpose C-Test to a free gap exercise <span class="hint">in progress</span></button>
+<div class="content">
+    <p>Currently:</p>
+        <div class="image-placeholder" style="background-image: url('imgs/gap_before.png');"></div>
+        <p>Goal:</p>
+        <div class="image-placeholder" style="background-image: url('imgs/gap_after.png');"></div>
+    </div>
+
+    <button type="button" class="collapsible">Multilingual interface <span class="hint">in progress</span></button>
+        <div class="content">
+            <p>This aims to provide the dashboards in the teacher's or the student's language.</p>
+        <div class="image-placeholder" style="background-image: url('imgs/multilingual1.png');"></div>
+        <div class="image-placeholder" style="background-image: url('imgs/multilingual2.png');"></div>
+    </div>
+
+
     <button type="button" class="non-collapsible">Exercise type: Picture labelling</button>
 
-    <button type="button" class="non-collapsible">Exercise type: Chinese Character and stroke order</button>
+    <button type="button" class="non-collapsible">Exercise type: Picture labelling</button>
 
     <button type="button" class="non-collapsible">Exercise type: Open-ended writing</button>
 
@@ -105,14 +224,11 @@
 
     <button type="button" class="non-collapsible">Exercise type: Listening with/out Pictures</button>
 
-    <button type="button" class="non-collapsible">Extending the Matching exercise</button>
-
-    <button type="button" class="non-collapsible">Extending AI support and feedback to teachers</button>
-
+</section>
 
     <footer>
-        <p>Status : Online <i class="fa fa-circle indicator" aria-hidden="true"></i></p>
-        <p>Last Update : 15 April 2024</p>
+        
+        <p>Last Update : 03 August 2025</p>
     </footer>
 </body>
 <script>
