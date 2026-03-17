@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mourhaf Kaddah — Reading Path</title>
+<style>*{box-sizing:border-box;margin:0;padding:0}body{margin:0;background:#fff;color:#111;font-family:system-ui,sans-serif}:root{--color-text-primary:#111;--color-text-secondary:#666;--color-border-tertiary:rgba(0,0,0,0.12);--color-border-secondary:rgba(0,0,0,0.25);--color-background-primary:#fff;--color-background-secondary:#f7f7f5;--color-background-tertiary:#f0ede8;--border-radius-lg:12px;--border-radius-md:8px}.path-wrap{padding:1.5rem 1rem;max-width:720px;margin:0 auto}.legend{display:flex;flex-wrap:wrap;gap:.5rem 1rem;margin-bottom:1.25rem;padding-left:calc(40px + 1rem)}.legend-item{display:flex;align-items:center;gap:.4rem;font-size:12px;color:var(--color-text-secondary)}.legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}.node-row{display:flex;align-items:flex-start;gap:1rem}.spine-col{display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0}.dot{width:14px;height:14px;border-radius:50%;flex-shrink:0;margin-top:5px;cursor:pointer;transition:transform .15s}.dot:hover{transform:scale(1.25)}.dot.active{outline:3px solid var(--dot-color);outline-offset:2px}.line{width:2px;flex:1;min-height:20px;background:var(--color-border-tertiary)}.node-card{flex:1;border:0.5px solid var(--color-border-tertiary);border-radius:12px;padding:.75rem 1rem;cursor:pointer;transition:border-color .15s;margin-bottom:1rem}.node-card:hover{border-color:var(--color-border-secondary)}.node-card.active{border-left:3px solid var(--dot-color);background:var(--color-background-secondary)}.node-row.unread .dot{opacity:.5}.node-row.unread .node-card{opacity:.6}.node-meta{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.2rem}.node-author{font-size:13px;font-weight:500;color:var(--color-text-primary)}.node-year{font-size:12px;color:var(--color-text-secondary)}.theme-badge{font-size:11px;padding:2px 8px;border-radius:20px;font-weight:500}.doi-link{font-size:11px;padding:2px 8px;border-radius:20px;font-weight:500;text-decoration:none;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-secondary);background:var(--color-background-secondary)}.doi-link:hover{border-color:var(--color-border-secondary);color:var(--color-text-primary)}.node-title{font-size:13px;color:var(--color-text-secondary);line-height:1.4}.notes{margin-top:.9rem;display:flex;flex-direction:column;gap:.75rem}.note-block h4{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--color-text-secondary);margin-bottom:.3rem}.note-block p{font-size:13px;line-height:1.65;color:var(--color-text-primary)}.note-block blockquote{font-size:13px;line-height:1.65;color:var(--color-text-secondary);font-style:italic;border-left:3px solid var(--dot-color,#888);padding-left:.75rem;margin:0}.note-block blockquote cite{display:block;font-size:11px;margin-top:.3rem;font-style:normal;color:var(--color-text-secondary)}.what-i-think{font-size:13px;line-height:1.65;color:var(--color-text-primary);padding:.65rem .85rem;border-radius:8px;background:var(--color-background-tertiary);border-left:3px solid var(--dot-color,#888)}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+const THEMES={"srl":{"label":"SRL foundations","color":"#7F77DD"},"cog":{"label":"Cognitive mechanisms","color":"#1D9E75"},"meta":{"label":"CF meta-analyses","color":"#378ADD"},"rebut":{"label":"Counterarguments","color":"#D85A30"},"dig":{"label":"Digital SRL","color":"#BA7517"},"bg":{"label":"Background","color":"#888780"}};
+const PAPERS=[
+    {
+        "id": 1,
+        "theme": "srl",
+        "author": "Zimmerman",
+        "year": 2002,
+        "doi": "10.1207/s15430421tip4102_2",
+        "read": true,
+        "title": "Becoming a self-regulated learner: An overview",
+        "notes": [
+            {
+                "type": "think",
+                "text": "Still reading"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "theme": "srl",
+        "author": "Hattie & Timperley",
+        "year": 2007,
+        "doi": "10.3102/003465430298487",
+        "read": false,
+        "title": "The power of feedback",
+        "notes": [
+            {
+                "type": "think",
+                "text": "Still reading"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "theme": "srl",
+        "author": "Winne & Hadwin",
+        "year": 1998,
+        "doi": null,
+        "read": false,
+        "title": "Studying as self-regulated learning",
+        "notes": [
+
+        ]
+    },
+    {
+        "id": 4,
+        "theme": "cog",
+        "author": "Roediger & Karpicke",
+        "year": 2006,
+        "doi": "10.1111/j.1467-9280.2006.01693.x",
+        "read": false,
+        "title": "Test-enhanced learning: taking memory tests improves long-term retention",
+        "notes": [
+
+        ]
+    },
+    {
+        "id": 5,
+        "theme": "cog",
+        "author": "Kang et al.",
+        "year": 2007,
+        "doi": "10.1080/09541440701326091",
+        "read": false,
+        "title": "Test format and corrective feedback modify the effect of testing on long-term retention",
+        "notes": [
+
+        ]
+    },
+    {
+        "id": 6,
+        "theme": "cog",
+        "author": "Suzuki et al.",
+        "year": 2019,
+        "doi": "10.1111/modl.12563",
+        "read": false,
+        "title": "Does studying grammar rules immediately after practice improve language learning?",
+        "notes": [
+
+        ]
+    },
+    {
+        "id": 7,
+        "theme": "cog",
+        "author": "Fang et al.",
+        "year": 2024,
+        "doi": "10.1017/S0272263124000032",
+        "read": false,
+        "title": "Effects of retrieval format and corrective feedback on L2 collocation learning",
+        "notes": [
+
+        ]
+    },
+    {
+        "id": 8,
+        "theme": "meta",
+        "author": "Li",
+        "year": 2010,
+        "doi": "10.1111/j.1467-9922.2010.00561.x",
+        "read": false,
+        "title": "The effectiveness of corrective feedback in SLA: a meta-analysis",
+        "notes": [
+
+        ]
+    },
+    {
+        "id": 9,
+        "theme": "meta",
+        "author": "Lyster & Saito",
+        "year": 2010,
+        "doi": "10.1017/S0272263109990520",
+        "read": false,
+        "title": "Oral feedback in classroom SLA: a meta-analysis",
+        "notes": [
+
+        ]
+    },
+    {
+        "id": 10,
+        "theme": "meta",
+        "author": "Mackey & Goo",
+        "year": 2007,
+        "doi": null,
+        "read": false,
+        "title": "Interaction research in SLA: a meta-analysis",
+        "notes": [
+  
+        ]
+    },
+    {
+        "id": 11,
+        "theme": "meta",
+        "author": "Xu & Zeng",
+        "year": 2023,
+        "doi": "10.3389/fpsyg.2023.1148888",
+        "read": false,
+        "title": "Timing of corrective feedback in second language learning: a systematic review",
+        "notes": [
+
+        ]
+    },
+    {
+        "id": 12,
+        "theme": "meta",
+        "author": "Yilmaz et al.",
+        "year": 2024,
+        "doi": "10.1111/lang.12584",
+        "read": false,
+        "title": "Feedback type and explicit associative memory in delayed CF in CMC",
+        "notes": [
+
+        ]
+    },
+    {
+        "id": 13,
+        "theme": "meta",
+        "author": "Canals et al.",
+        "year": 2022,
+        "doi": "10.1177/1362168820913898",
+        "read": false,
+        "title": "Immediate and delayed CF on L2 development in synchronous CMC",
+        "notes": [
+
+        ]
+    },
+    {
+        "id": 14,
+        "theme": "rebut",
+        "author": "Dunlosky & Rawson",
+        "year": 2012,
+        "doi": "10.1016/j.learninstruc.2012.01.005",
+        "read": false,
+        "title": "Overconfidence produces underachievement",
+        "notes": [
+
+        ]
+    },
+    {
+        "id": 15,
+        "theme": "rebut",
+        "author": "Järvelä & Hadwin",
+        "year": 2013,
+        "doi": "10.1080/00461520.2012.749006",
+        "read": false,
+        "title": "New frontiers: regulating learning in CSCL",
+        "notes": [
+
+        ]
+    },
+    {
+        "id": 16,
+        "theme": "rebut",
+        "author": "Risko & Gilbert",
+        "year": 2016,
+        "doi": "10.1016/j.tics.2016.07.002",
+        "read": false,
+        "title": "Cognitive offloading",
+        "notes": [
+  
+        ]
+    },
+    {
+        "id": 17,
+        "theme": "rebut",
+        "author": "Pintrich",
+        "year": 2004,
+        "doi": "10.1023/B:EDPR.0000034022.16567.d7",
+        "read": false,
+        "title": "A conceptual framework for assessing motivation and self-regulated learning",
+        "notes": [
+
+        ]
+    },
+    {
+        "id": 18,
+        "theme": "dig",
+        "author": "Azevedo & Cromley",
+        "year": 2004,
+        "doi": "10.1037/0022-0663.96.3.523",
+        "read": false,
+        "title": "Does training on SRL facilitate students' learning with hypermedia?",
+        "notes": [
+ 
+        ]
+    },
+    {
+        "id": 19,
+        "theme": "dig",
+        "author": "Bannert & Reimann",
+        "year": 2012,
+        "doi": "10.1007/s11251-011-9167-4",
+        "read": false,
+        "title": "Supporting self-regulated hypermedia learning through prompts",
+        "notes": [
+
+        ]
+    },
+    {
+        "id": 20,
+        "theme": "dig",
+        "author": "Efklides",
+        "year": 2011,
+        "doi": "10.1080/00461520.2011.538645",
+        "read": false,
+        "title": "Interactions of metacognition with motivation and affect in SRL: the MASRL model",
+        "notes": [
+
+        ]
+    },
+    {
+        "id": 21,
+        "theme": "dig",
+        "author": "Ziegler et al.",
+        "year": 2017,
+        "doi": "10.1111/lang.12243",
+        "read": false,
+        "title": "Interdisciplinary research at the intersection of CALL, NLP, and SLA",
+        "notes": [
+
+        ]
+    },
+    {
+        "id": 22,
+        "theme": "bg",
+        "author": "Shute",
+        "year": 2008,
+        "doi": "10.3102/0034654307313795",
+        "read": false,
+        "title": "Focus on formative feedback",
+        "notes": [
+
+        ]
+    },
+    {
+        "id": 23,
+        "theme": "bg",
+        "author": "Narciss",
+        "year": 2008,
+        "doi": null,
+        "read": false,
+        "title": "Feedback strategies for interactive learning tasks",
+        "notes": [
+
+        ]
+    },
+    {
+        "id": 24,
+        "theme": "bg",
+        "author": "Ellis et al.",
+        "year": 2006,
+        "doi": "10.1017/S0272263106060141",
+        "read": false,
+        "title": "Implicit and explicit CF and the acquisition of L2 grammar",
+        "notes": [
+
+        ]
+    }
+];
+
+const TBADGE={};
+Object.entries(THEMES).forEach(([k,v])=>{const r=parseInt(v.color.slice(1,3),16),g=parseInt(v.color.slice(3,5),16),b=parseInt(v.color.slice(5,7),16);TBADGE[k]={bg:'rgba('+r+','+g+','+b+',0.12)',text:v.color,border:'rgba('+r+','+g+','+b+',0.3)'};});
+let active=null;
+function rNotes(notes,col){return notes.map(n=>{if(n.type==='section')return '<div class="note-block"><h4>'+n.title+'</h4><p>'+n.text+'</p></div>';if(n.type==='quote')return '<div class="note-block"><h4>direct quote</h4><blockquote style="border-left-color:'+col+'">'+n.text+'<cite>— '+n.cite+'</cite></blockquote></div>';if(n.type==='think')return '<div class="note-block"><h4>what I think</h4><div class="what-i-think" style="border-left-color:'+col+'">'+n.text+'</div></div>';return '';}).join('');}
+function render(){
+  const legend=Object.entries(THEMES).map(([k,v])=>'<div class="legend-item"><div class="legend-dot" style="background:'+v.color+'"></div>'+v.label+'</div>').join('');
+  let h='<div class="path-wrap"><div class="legend">'+legend+'</div>';
+  PAPERS.forEach((p,i)=>{
+    const theme=THEMES[p.theme],badge=TBADGE[p.theme],isRead=p.read,isActive=active===p.id,isLast=i===PAPERS.length-1;
+    const doi=p.doi?'<a class="doi-link" href="https://doi.org/'+p.doi+'" target="_blank" onclick="event.stopPropagation()">DOI</a>':'';
+    const notes=isActive?'<div class="notes">'+rNotes(p.notes,theme.color)+'</div>':'';
+    h+='<div class="node-row '+(isRead?'':'unread')+'" data-id="'+p.id+'"><div class="spine-col"><div class="dot '+(isActive?'active':'')+'" style="background:'+(isRead?theme.color:'#C8C8C8')+';--dot-color:'+theme.color+'"></div>'+(isLast?'':'<div class="line"></div>')+'</div><div class="node-card '+(isActive?'active':'')+'" style="--dot-color:'+theme.color+'"><div class="node-meta"><span class="node-author">'+p.author+'</span><span class="node-year">'+p.year+'</span><span class="theme-badge" style="background:'+(isRead?badge.bg:'var(--color-background-secondary)')+';color:'+(isRead?badge.text:'var(--color-text-secondary)')+';border:0.5px solid '+(isRead?badge.border:'var(--color-border-tertiary)')+'">'+theme.label+'</span>'+doi+'</div><div class="node-title">'+p.title+'</div>'+notes+'</div></div>';
+  });
+  document.getElementById('root').innerHTML=h+'</div>';
+  document.querySelectorAll('.node-row').forEach(row=>{
+    row.querySelector('.node-card').addEventListener('click',()=>{const id=parseInt(row.dataset.id);active=active===id?null:id;render();});
+    const a=row.querySelector('.doi-link');if(a)a.addEventListener('click',e=>e.stopPropagation());
+  });
+}
+render();</script>
+</body>
+</html>
