@@ -316,7 +316,7 @@ function render(){
   let h='<div class="path-wrap"><div class="legend">'+legend+'</div>';
   PAPERS.forEach((p,i)=>{
     const theme=THEMES[p.theme],badge=TBADGE[p.theme],isRead=p.read,isActive=active===p.id,isLast=i===PAPERS.length-1;
-    const doi=p.doi?'<a class="doi-link" href="https://doi.org/'+p.doi+'" target="_blank" onclick="event.stopPropagation()">DOI</a>':'';
+    const doi=p.doi?'<a class="doi-link" href="'+p.doi+'" target="_blank" onclick="event.stopPropagation()">DOI</a>':'';
     const notes=isActive?'<div class="notes">'+rNotes(p.notes,theme.color)+'</div>':'';
     h+='<div class="node-row '+(isRead?'':'unread')+'" data-id="'+p.id+'"><div class="spine-col"><div class="dot '+(isActive?'active':'')+'" style="background:'+(isRead?theme.color:'#C8C8C8')+';--dot-color:'+theme.color+'"></div>'+(isLast?'':'<div class="line"></div>')+'</div><div class="node-card '+(isActive?'active':'')+'" style="--dot-color:'+theme.color+'"><div class="node-meta"><span class="node-author">'+p.author+'</span><span class="node-year">'+p.year+'</span><span class="theme-badge" style="background:'+(isRead?badge.bg:'var(--color-background-secondary)')+';color:'+(isRead?badge.text:'var(--color-text-secondary)')+';border:0.5px solid '+(isRead?badge.border:'var(--color-border-tertiary)')+'">'+theme.label+'</span>'+doi+'</div><div class="node-title">'+p.title+'</div>'+notes+'</div></div>';
   });
